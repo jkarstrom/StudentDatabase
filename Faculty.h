@@ -4,11 +4,10 @@
 //CPSC: 350 - 2
 //Assignment 5: Student Database
 
-#include <iostream>
+#include "Person.h"
+#include "SinglyLinkedList.h"
 
-using namespace std;
-
-class Faculty
+class Faculty : public Person
 {
 public:
   Faculty();//default constructor
@@ -16,10 +15,13 @@ public:
   ~Faculty();//deconstructor
 
   //core functions
-
+  void printInfo();
   //aux functions
+  void addAdvisee(int ID);
+  void removeAdvisee(int ID);
 
 private:
   //vars
   string department;
+  SinglyLinkedList advisees;
 }

@@ -17,10 +17,12 @@ public:
   ~Person();//deconstructor
 
   //core functions
-
+  int getID();
+  string getName();
+  string getLevel();
   //aux functions
 
-private:
+protected:
   //vars
   int id;
   string name;

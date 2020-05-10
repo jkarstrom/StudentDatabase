@@ -4,7 +4,6 @@
 //CPSC: 350 - 2
 //Assignment 5: Student Database
 
-#include "Person.h"
 #include "Student.h"
 
 using namespace std;
@@ -12,7 +11,7 @@ using namespace std;
 //default constructor
 Student::Student()
 {
-  
+
 }
 
 //overload constructor

@@ -5,10 +5,10 @@
 //Assignment 5: Student Database
 
 #include <iostream>
-
+#include "Person.h"
 using namespace std;
 
-class Student
+class Student:public Person
 {
 public:
 
@@ -17,13 +17,15 @@ public:
   ~Student();//deconstructor
 
   //core functions
-
+  void setAdvisor(int id);
+  void printInfo();
   //aux functions
+
 
 private:
   //vars
   string major;
   double gpa;
-  int advisor;
+  int advisorID;
 
 }

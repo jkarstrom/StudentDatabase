@@ -4,10 +4,9 @@
 //CPSC: 350 - 2
 //Assignment 5: Student Database
 
-#include "Person.h"
+
 #include "Faculty.h"
 
-using namespace std;
 
 Faculty::Faculty()
 {
@@ -21,5 +20,5 @@ Faculty::Faculty()
 
 Faculty::~Faculty()
 {
-  
+
 }
