@@ -1,13 +1,16 @@
 #include "BST.h"
 
+template<class T>
 BST::BST(){
 
 }
 
+template<class T>
 BST::~BST(){
 
 }
 
+template<class T>
 void BST::insert(int value){
     TreeNode *node = new TreeNode(value);
 
@@ -42,6 +45,7 @@ void BST::insert(int value){
     }
 }
 
+template<class T>
 bool BST::search(int value){
     if(isEmpty()){
         return false;
@@ -62,6 +66,7 @@ bool BST::search(int value){
     return true;
 }
 
+template<class T>
 bool BST::deleteNode(int k){
     if(isEmpty()){
         return false;
@@ -133,10 +138,12 @@ bool BST::deleteNode(int k){
     }
 }
 
+template<class T>
 bool BST::isEmpty(){
     return (root == NULL);
 }
 
+template<class T>
 TreeNode* BST::getMin(){
     TreeNode *curr = root;
 
@@ -149,6 +156,7 @@ TreeNode* BST::getMin(){
     return curr;
 }
 
+template<class T>
 TreeNode* BST::getMax(){
     TreeNode *curr = root;
 
@@ -161,6 +169,7 @@ TreeNode* BST::getMax(){
     return curr;
 }
 
+template<class T>
 TreeNode *BST::getSuccessor(TreeNode *d){
     // the parameter d represents the node to be deleted
     Treenode *current = d->right;
@@ -182,6 +191,7 @@ TreeNode *BST::getSuccessor(TreeNode *d){
     return successor;
 }
 
+template<class T>
 void BST::printTree(TreeNode *node){
     if(node == NULL)
         return;

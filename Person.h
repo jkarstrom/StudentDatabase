@@ -20,7 +20,9 @@ public:
   int getID();
   string getName();
   string getLevel();
+  void setLevel();
   //aux functions
+  void printInfo();
 
 protected:
   //vars

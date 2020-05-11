@@ -1,4 +1,5 @@
 #include "GenStack.h"
+#include "Transaction.h"
 
 class Rollback{
 public:

@@ -11,7 +11,7 @@ SinglyLinkedList::~SinglyLinkedList(){
 }
 
 void SinglyLinkedList::insertFront(int id){
-    ListNode *node = new ListNode();
+    ListNode *node = new ListNode(id);
     node->next = front;
     front = node;
     size++;

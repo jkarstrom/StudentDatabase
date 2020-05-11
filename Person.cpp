@@ -24,3 +24,9 @@ Person::~Person
 {
 
 }
+
+void Person::printInfo(){
+    cout << "ID: " << id << endl;
+    cout << "Name: " << name << endl;
+    cout << "Level: " << level << endl;
+}

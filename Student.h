@@ -19,7 +19,9 @@ public:
   void setAdvisor(int id);
   void printInfo();
   //aux functions
-  int isEqual(Student other);
+  bool operator<(Student &original, Student &other);
+  bool operator>(Student &original, Student &other);
+  bool operator==(Student &original, Student &other);
 
 private:
   //vars

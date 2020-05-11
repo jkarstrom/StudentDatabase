@@ -1,7 +1,3 @@
-#include "Faculty.h"
-#include "Student.h"
-
-
 template class <T>
 class TreeNode{
 public:
@@ -13,7 +9,7 @@ public:
 
     int key;
     T value;
-    TreeNode *left;
-    TreeNode *right;
+    TreeNode<T> *left;
+    TreeNode<T> *right;
 
 };

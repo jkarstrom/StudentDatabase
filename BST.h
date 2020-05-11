@@ -1,8 +1,11 @@
 #include "TreeNode.h"
+#include "Faculty.h"
+#include "Student.h"
 
+template class <T>
 class BST{
 public:
-    BST();
+    BST<T>();
     ~BST();
     // virtual ~BST() - when working with template classes
 
@@ -18,5 +21,5 @@ public:
     void printTree(TreeNode *node);
 
 private:
-    TreeNode *root;
+    TreeNode<T> *root;
 };
