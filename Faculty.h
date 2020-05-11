@@ -11,17 +11,18 @@ class Faculty : public Person
 {
 public:
   Faculty();//default constructor
-  Faculty(string d);//overload constructor
+  Faculty(int i, string n, string l, string d);//overload constructor
   ~Faculty();//deconstructor
 
   //core functions
-  void printInfo();
+
+  void addAdvisee(int id);
+  void removeAdvisee(int id);
   //aux functions
-  void addAdvisee(int ID);
-  void removeAdvisee(int ID);
+  void printInfo();
 
 private:
   //vars
   string department;
-  SinglyLinkedList advisees;
-}
+  SinglyLinkedList* adviseeList;
+};

@@ -9,25 +9,18 @@
 using namespace std;
 
 //default constructor
-Student::Student()
+Student::Student():Person()
 {
-    majojr = "";
+    major = "";
     gpa = 0;
     advisorID = 0;
 }
 
-Student::Student(int i, string n, string l, string m, double g, int a)
+Student::Student(int i, string n, string l, string m, double g, int a):Person(i, n, l)
 {
-    Person::Person(int i, string n, string l);
     major = m;
     gpa = g;
     advisorID = a;
-}
-
-//overload constructor
-Student::Student();
-{
-
 }
 
 //deconstructor
@@ -37,7 +30,7 @@ Student::~Student()
 }
 
 void Student::setAdvisor(int id){
-    advisorID = a;
+    advisorID = id;
 }
 
 void Student::printInfo(){
@@ -45,23 +38,17 @@ void Student::printInfo(){
     cout << "Major: " << major << endl;
     cout << "GPA:" << gpa << endl;
     cout << "Advisor: " << advisorID << endl;
+    cout << endl;
 }
 
-bool Student::operator<(Student &original, Student &other){
-    return (original.getID() < other.getID());
+bool Student::operator<(const Student& other){
+    return (id < other.id);
 }
 
-bool Student::operator>(Student &original, Student &other){
-    return (original.getID() < other.getID());
+bool Student::operator>(const Student& other){
+    return (id > other.id);
 }
 
-bool Student::operator==(Student &original, Student &other){
-    return (original.getID() == other.getID());
-}
-
-int main(){
-    Student *me = new Student("111","April","Soph","CS", 4.0, "0000");
-    Student *you = new Student("112","May","Fresh","DA", 3.9, "0000");
-    cout << me == you << endl;
-    return 0;
+bool Student::operator==(const Student& other){
+    return (id == other.id);
 }

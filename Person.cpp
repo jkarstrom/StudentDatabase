@@ -20,7 +20,7 @@ Person::Person(int i, string n, string l)
 }
 
 //deconstructor
-Person::~Person
+Person::~Person()
 {
 
 }

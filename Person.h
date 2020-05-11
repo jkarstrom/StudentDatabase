@@ -29,4 +29,4 @@ protected:
   int id;
   string name;
   string level;
-}
+};

@@ -15,6 +15,6 @@ public:
     int removeAtPos(int pos);
 
     unsigned int getSize();
-    book isEmpty();
+    bool isEmpty();
     void printList();
 };

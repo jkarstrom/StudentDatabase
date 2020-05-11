@@ -19,7 +19,7 @@ void SinglyLinkedList::insertFront(int id){
 
 int SinglyLinkedList::removeFront(){
     //check if isEmpty
-    fint temp = front->data;
+    int temp = front->data;
     ListNode *ft = front;
     front = front->next;
     ft->next = NULL;

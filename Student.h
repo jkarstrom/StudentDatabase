@@ -12,16 +12,17 @@ class Student:public Person
 public:
 
   Student();//defalt constructor
-  Student(string m, double g, int a);//overload constructor
+  Student(int i, string n, string l, string m, double g, int a);//overload constructor
   ~Student();//deconstructor
 
   //core functions
+  bool operator<(const Student& other);
+  bool operator>(const Student& other);
+  bool operator==(const Student& other);
   void setAdvisor(int id);
-  void printInfo();
+
   //aux functions
-  bool operator<(Student &original, Student &other);
-  bool operator>(Student &original, Student &other);
-  bool operator==(Student &original, Student &other);
+  void printInfo();
 
 private:
   //vars
@@ -29,4 +30,4 @@ private:
   double gpa;
   int advisorID;
 
-}
+};
