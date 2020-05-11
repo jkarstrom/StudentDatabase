@@ -31,7 +31,8 @@ void Faculty::addAdvisee(int id){
 
 void Faculty::removeAdvisee(int id){
     int pos = adviseeList->search(id);
-    adviseeList->removeAtPos(pos);
+    if(pos != -1)
+        adviseeList->removeAtPos(pos);
 }
 
 void Faculty::printInfo(){
@@ -48,5 +49,7 @@ int main(){
     me->addAdvisee(2345);
     me->removeAdvisee(1234);
     me->printInfo();
+
+    delete me;
     return 0;
 }

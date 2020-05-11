@@ -48,8 +48,9 @@ int SinglyLinkedList::search(int val){
             // we didn't find it
             pos = -1;
         }
-        return pos;
+
     }
+    return pos;
 }
 
 int SinglyLinkedList::removeAtPos(int pos){
@@ -86,8 +87,10 @@ bool SinglyLinkedList::isEmpty(){
 void SinglyLinkedList::printList(){
     ListNode *curr = front;
 
-    while(curr != NULL){
-        cout << curr->data << endl;
-        curr = curr->next;
+    if(!isEmpty()){
+        while(curr != NULL){
+            cout << curr->data << endl;
+            curr = curr->next;
+        }
     }
 }
