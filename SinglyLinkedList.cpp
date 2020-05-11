@@ -10,7 +10,7 @@ SinglyLinkedList::~SinglyLinkedList(){
     front = NULL;
 }
 
-void SinglyLinkedList::insertFront(int d){
+void SinglyLinkedList::insertFront(int id){
     ListNode *node = new ListNode();
     node->next = front;
     front = node;
@@ -75,15 +75,15 @@ int SinglyLinkedList::removeAtPos(int pos){
     return temp;
 }
 
-unsigned int NaiveList::getSize(){
+unsigned int SinglyLinkedList::getSize(){
     return size;
 }
 
-bool NaiveList::isEmpty(){
+bool SinglyLinkedList::isEmpty(){
     return (size == 0);
 }
 
-void NaiveList::printList(){
+void SinglyLinkedList::printList(){
     ListNode *curr = front;
 
     while(curr != NULL){

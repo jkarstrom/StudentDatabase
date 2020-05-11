@@ -9,7 +9,7 @@ public:
     SinglyLinkedList();
     ~SinglyLinkedList();
 
-    void insertFront(int data);
+    void insertFront(int id);
     int removeFront();
     int search(int val); //will return position of node
     int removeAtPos(int pos);

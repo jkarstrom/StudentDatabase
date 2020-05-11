@@ -1,7 +1,5 @@
 #ifndef GENSTACK_H
 #define GENSTACK_H
-#include <iostream>
-using namespace std;
 
 template<class T>
 class GenStack{

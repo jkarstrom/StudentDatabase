@@ -4,9 +4,8 @@
 //CPSC: 350 - 2
 //Assignment 5: Student Database
 
-#include <iostream>
+
 #include "Person.h"
-using namespace std;
 
 class Student:public Person
 {
@@ -20,7 +19,7 @@ public:
   void setAdvisor(int id);
   void printInfo();
   //aux functions
-
+  int isEqual(Student other);
 
 private:
   //vars
