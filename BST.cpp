@@ -1,18 +1,18 @@
 #include "BST.h"
 
 template<class T>
-BST::BST(){
+BST<T>::BST(){
 
 }
 
 template<class T>
-BST::~BST(){
+BST<T>::~BST(){
 
 }
 
 template<class T>
-void BST::insert(int value){
-    TreeNode *node = new TreeNode(value);
+void BST<T>::insert(int value){
+    TreeNode<T> *node = new TreeNode<T>(value);
 
     if(isEmpty){
         // empty tree
@@ -20,8 +20,8 @@ void BST::insert(int value){
     }
     else{
         // not an empty tree
-        TreeNode *curr = root; // start at the root
-        TreeNode *parent;
+        TreeNode<T> *curr = root; // start at the root
+        TreeNode<T> *parent;
 
         while(true){
             parent = curr;
@@ -46,13 +46,13 @@ void BST::insert(int value){
 }
 
 template<class T>
-bool BST::search(int value){
+bool BST<T>::search(int value, int action){
     if(isEmpty()){
         return false;
     }
     else{
         // it is not an empty tree
-        TreeNode *current = root;
+        TreeNode<T> *current = root;
         while(current->key != value){
             if(value < current->key)
                 current = current->left;
@@ -62,18 +62,25 @@ bool BST::search(int value){
             if(current == NULL) // we didn't find value
                 return false;
         }
+        // PRINT INFO HERE ----------------------------------------------------
+        if(action == 3 || action == 4)
+            current->value->printInfo();
+        else if(action == 5)
+            cout << "Advisor: " << current->value->getAdvisor() << endl;
+        else if(action == 6)
+            current->value->printAdvisees();
     }
     return true;
 }
 
 template<class T>
-bool BST::deleteNode(int k){
+bool BST<T>::deleteNode(int k){
     if(isEmpty()){
         return false;
     }
 
-    TreeNode *parent = root;
-    TreeNode *current = root;
+    TreeNode<T> *parent = root;
+    TreeNode<T> *current = root;
     bool isLeft = true;
 
     while(current->key != k){
@@ -122,7 +129,7 @@ bool BST::deleteNode(int k){
     }
     // the node to be deleted has two children
     else{
-        TreeNode *successor = getSuccessor(current);
+        TreeNode<T> *successor = getSuccessor(current);
 
         if(current == root)
             root = successor;
@@ -139,13 +146,13 @@ bool BST::deleteNode(int k){
 }
 
 template<class T>
-bool BST::isEmpty(){
+bool BST<T>::isEmpty(){
     return (root == NULL);
 }
 
 template<class T>
-TreeNode* BST::getMin(){
-    TreeNode *curr = root;
+TreeNode<T>* BST<T>::getMin(){
+    TreeNode<T>*curr = root;
 
     if(root == NULL){
         return NULL;
@@ -157,8 +164,8 @@ TreeNode* BST::getMin(){
 }
 
 template<class T>
-TreeNode* BST::getMax(){
-    TreeNode *curr = root;
+TreeNode<T>* BST<T>::getMax(){
+    TreeNode<T>*curr = root;
 
     if(root == NULL){
         return NULL;
@@ -170,11 +177,11 @@ TreeNode* BST::getMax(){
 }
 
 template<class T>
-TreeNode *BST::getSuccessor(TreeNode *d){
+TreeNode<T>* BST<T>::getSuccessor(TreeNode *d){
     // the parameter d represents the node to be deleted
-    Treenode *current = d->right;
-    TreeNode *sp = d;
-    TreeNode *successor = d;
+    Treenode<T>*current = d->right;
+    TreeNode<T>*sp = d;
+    TreeNode<T>*successor = d;
 
     while(current != NULL){
         sp = successor;
@@ -192,11 +199,11 @@ TreeNode *BST::getSuccessor(TreeNode *d){
 }
 
 template<class T>
-void BST::printTree(TreeNode *node){
+void BST<T>::printTree(TreeNode *node){
     if(node == NULL)
         return;
 
     printTree(node->left);
-    cout << node->key << endl;
+    node->value->printInfo() // PRINT INFO HERE -----------------------------
     printTree(node->right);
 }

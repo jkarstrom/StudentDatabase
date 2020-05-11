@@ -1,15 +1,40 @@
 #include "Database.h"
 
 Database::Database(){
-
+    masterFaculty = new BST<Faculty>();
+    masterStudent = new BST<Student>();
 }
 
 Database::~Database(){
 
 }
 
-Database::run(){
+void Database::run(){
     // print menu
+    printMenu();
+    // make user's selection
+    cin >> userAction;
+
+    if(userAction == 1)
+        masterStudent->printTree();
+    else if(userAction == 2)
+        masterFaculty->printTree();
+    else if(userAction == 3 || userAction == 5){
+        cout << "Enter student id: ";
+        cin >> someID;
+        masterStudent->search(someID, userAction);
+    }
+    else if(userAction == 4 || userAction == 6){
+        cout << "Enter faculty id: ";
+        cin >> someID;
+        masterFaculty->search(someID, userAction);
+    }
+    // add transaction to rollback
+    
+
+}
+
+void Database::printMenu(){
     cout << "Main Menu" << endl;
     cout << "(1) Print all students and their information" << endl;
     cout << "(2) Print all faculty and their information" << endl;
@@ -26,13 +51,7 @@ Database::run(){
 
     cout << "(11) Change a student's advisor" << endl;
     cout << "(12) Remove an advisee from a faculty member" << endl;
-    
+
     cout << "(13) Rollback" << endl;
     cout << "(14) Exit" << endl;
-    // update Rollback
-    cin >> userAction;
-
-
-
-
 }

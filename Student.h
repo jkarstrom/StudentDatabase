@@ -19,6 +19,7 @@ public:
   bool operator<(const Student& other);
   bool operator>(const Student& other);
   bool operator==(const Student& other);
+  int getAdvisor();
   void setAdvisor(int id);
 
   //aux functions

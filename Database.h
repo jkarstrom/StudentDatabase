@@ -8,12 +8,14 @@ public:
     ~Database();
 
     void run();
+    void printMenu();
 
 private:
-    BST masterFaculty;
-    BST masterStudent;
+    BST<Faculty> masterFaculty;
+    BST<Student> masterStudent;
 
     int userAction;
+    int someID;
 
 
 };

@@ -35,11 +35,15 @@ void Faculty::removeAdvisee(int id){
         adviseeList->removeAtPos(pos);
 }
 
+void Faculty::printAdvisees(){
+    cout << "Advisees:" << endl;
+    adviseeList->printList();
+}
+
 void Faculty::printInfo(){
     Person::printInfo();
     cout << "Department: " << department << endl;
-    cout << "Advisees:" << endl;
-    adviseeList->printList();
+    printAdvisees();
     cout << endl;
 }
 

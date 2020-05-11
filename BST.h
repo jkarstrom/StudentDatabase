@@ -10,15 +10,15 @@ public:
     // virtual ~BST() - when working with template classes
 
     void insert(int value); // which in this example is also our key
-    bool search(int value); // which in this example is also our key
+    bool search(int value, int action); // which in this example is also our key
     bool deleteNode(int k);
 
     bool isEmpty();
-    TreeNode* getMin();
-    TreeNode* getMax();
+    TreeNode<T>* getMin();
+    TreeNode<T>* getMax();
 
-    TreeNode* getSuccessor(TreeNode *d);
-    void printTree(TreeNode *node);
+    TreeNode<T>* getSuccessor(TreeNode<T>*d);
+    void printTree(TreeNode<T> *node);
 
 private:
     TreeNode<T> *root;
