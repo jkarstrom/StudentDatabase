@@ -7,6 +7,8 @@ public:
     Database();
     ~Database();
 
+    void makeTrees();
+
     void run();
     void printMenu();
 

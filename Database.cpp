@@ -9,9 +9,18 @@ Database::~Database(){
 
 }
 
+void Database::makeTrees(){
+    // check if files for trees are already there, if so, update
+    
+}
+
 void Database::run(){
+    // look for trees
+
+
     // print menu
     printMenu();
+
     // make user's selection
     cin >> userAction;
 
@@ -30,7 +39,7 @@ void Database::run(){
         masterFaculty->search(someID, userAction);
     }
     // add transaction to rollback
-    
+
 
 }
 
