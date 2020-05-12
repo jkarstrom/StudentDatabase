@@ -2,14 +2,14 @@
 
 template<class T>
 GenStack<T>::GenStack(){
-    myArray = new T[100];
+    // myArray = new T*[100];
     mSize = 10;
     top = -1;
 }
 
 template<class T>
 GenStack<T>::GenStack(int maxSize){
-    myArray = new T[maxSize];
+    // myArray = new T*[maxSize];
     mSize = maxSize;
     top = -1;
 }
@@ -27,11 +27,11 @@ void GenStack<T>::clearArray(){
 template<class T>
 void GenStack<T>::push(T* data){
     if(!isFull()){
-        *myArray[++top] = &data;
+        myArray[++top] = data;
     }
     else{
         mSize *= 2;
-        T* temp = new T[mSize];
+        T* temp[mSize];
         for (int i = 0; i < (mSize/2); ++i)
         {
             temp[i] = myArray[i];
@@ -43,12 +43,12 @@ void GenStack<T>::push(T* data){
             myArray[i] = temp[i];
         }
         delete []temp;
-        *myArray[++top] = &data;
+        myArray[++top] = data;
     }
 }
 
 template<class T>
-T GenStack<T>::pop(){
+T* GenStack<T>::pop(){
     if(!isEmpty()){
         return myArray[top--];
     }
@@ -59,7 +59,7 @@ T GenStack<T>::pop(){
 }
 
 template<class T>
-T GenStack<T>::peek(){
+T* GenStack<T>::peek(){
     return myArray[top];
 }
 
