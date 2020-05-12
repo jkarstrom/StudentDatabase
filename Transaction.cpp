@@ -35,7 +35,6 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
             else{
                 specialID = rene->getID();
                 sTree->insert(specialID, rene);
-
             }
         }
         else{
@@ -45,12 +44,19 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
 
     }
     else if(number == 8){
+        // delete a student
         if(!reversed){
             cout << "Enter student ID: ";
             cin >> specialID;
+            sTree->search(specialID, 7, sSoul);
         }
-        sTree->search(specialID, 7, sSoul);
         sTree->deleteNode(specialID);
+    }
+    else if(number == 9){
+        // add a faculty member
+    }
+    else if(number == 10){
+        // delete a faculty member
     }
 
 }

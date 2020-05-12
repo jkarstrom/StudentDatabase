@@ -41,7 +41,7 @@ void Database::run(){
     }
 
     // add transaction to rollback
-    else if(userAction == 7 || userAction == 8){
+    else if(userAction >= 7 && userAction <= 10){
         Transaction* myMove = new Transaction(userAction);
         myMove->proceed(masterStudent, masterFaculty);
         myMove->reverse();

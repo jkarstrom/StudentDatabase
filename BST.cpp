@@ -204,16 +204,20 @@ TreeNode<T>* BST<T>::getSuccessor(TreeNode<T>* d){
 template<class T>
 void BST<T>::printTree(TreeNode<T> *d){
     TreeNode<T>* node;
-    if(d == root)
-        TreeNode<T>* node = root;
-    else
-        TreeNode<T>* node = d;
-    if(node == NULL)
-        return;
 
-    printTree(node->left);
-    node->value->printInfo(); // PRINT INFO HERE -----------------------------
-    printTree(node->right);
+    if(d == root)
+        node = root;
+    else
+        node = d;
+
+    if(node == NULL){}
+
+    else{
+        cout << "Printing ..." << endl; // DELETE ----------------------------------------------
+        printTree(node->left);
+        node->value->printInfo(); // PRINT INFO HERE -----------------------------
+        printTree(node->right);
+    }
 }
 
 template class BST<Faculty>;
