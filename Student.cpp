@@ -57,6 +57,10 @@ void Student::setAdvisor(int id){
     advisorID = id;
 }
 
+void Student::printAd(){
+    cout << "Advisor: " << advisorID << endl;
+}
+
 void Student::fillInfo()
 {
     Person::fillInfo();

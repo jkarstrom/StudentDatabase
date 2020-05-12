@@ -24,6 +24,7 @@ public:
   void setGPA(double g);
   int getAdvisor();
   void setAdvisor(int id);
+  void printAd();
 
   //aux functions
   void fillInfo();

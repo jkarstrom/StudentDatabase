@@ -67,10 +67,8 @@ bool BST<T>::search(int id, int action, T* soul){
         // ASSIGNMENT SPECIFIC CODE ----------------------------------------------------
         if(action == 3 || action == 4)
             current->value->printInfo();
-        else if(action == 5)
-            cout << "Advisor: " << current->value->getAdvisor() << endl;
-        else if(action == 6)
-            current->value->printAdvisees();
+        else if(action == 5 || 6)
+            current->value->printAd();
         else if(action == 7)
             current->value->transfer(soul);
 
@@ -204,8 +202,12 @@ TreeNode<T>* BST<T>::getSuccessor(TreeNode<T>* d){
 }
 
 template<class T>
-void BST<T>::printTree(){
-    TreeNode<T>* node = root;
+void BST<T>::printTree(TreeNode<T> *d){
+    TreeNode<T>* node;
+    if(d == root)
+        TreeNode<T>* node = root;
+    else
+        TreeNode<T>* node = d;
     if(node == NULL)
         return;
 
@@ -214,5 +216,5 @@ void BST<T>::printTree(){
     printTree(node->right);
 }
 
-template class TreeNode<Faculty>;
-template class TreeNode<Student>;
+template class BST<Faculty>;
+template class BST<Student>;

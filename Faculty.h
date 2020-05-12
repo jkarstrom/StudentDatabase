@@ -21,7 +21,7 @@ public:
   void addAdvisee(int id);
   void removeAdvisee(int id);
   //aux functions
-  void printAdvisees();
+  void printAd();
   void printInfo();
 
 private:

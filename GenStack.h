@@ -21,7 +21,7 @@ private:
     int top = -1;
     int mSize = 0;
 
-    T* myArray[100];
+    T** myArray;
     void clearArray();
 
 };

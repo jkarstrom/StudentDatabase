@@ -10,7 +10,7 @@ public:
     ~Rollback();
 
     void update(Transaction* t);
-    Transaction goBack();
+    Transaction* goBack();
 
 private:
     GenStack<Transaction>* myActions;

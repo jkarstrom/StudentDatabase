@@ -18,7 +18,7 @@ public:
     TreeNode<T>* getMax();
 
     TreeNode<T>* getSuccessor(TreeNode<T>*d);
-    void printTree();
+    void printTree(TreeNode<T> *d = NULL);
 
 private:
     TreeNode<T> *root;

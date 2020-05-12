@@ -13,7 +13,7 @@ void Rollback::update(Transaction* t){
     myActions->push(t);
 }
 
-Transaction Rollback::goBack(){
+Transaction* Rollback::goBack(){
     // return latest transaction
     return myActions->pop();
 }
