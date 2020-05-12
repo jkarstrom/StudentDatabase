@@ -10,7 +10,7 @@ TreeNode<T>::TreeNode(){
 }
 
 template<class T>
-TreeNode<T>::TreeNode(int k, T v){
+TreeNode<T>::TreeNode(int k, T* v){
     key = k;
     value = v;
     left = NULL;

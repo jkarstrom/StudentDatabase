@@ -46,14 +46,3 @@ void Faculty::printInfo(){
     printAdvisees();
     cout << endl;
 }
-
-int main(){
-    Faculty *me = new Faculty(111,"Rene","Professor","Fowler");
-    me->addAdvisee(1234);
-    me->addAdvisee(2345);
-    me->removeAdvisee(1234);
-    me->printInfo();
-
-    delete me;
-    return 0;
-}

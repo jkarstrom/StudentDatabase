@@ -1,3 +1,6 @@
+#ifndef ROLLBACK_H
+#define ROLLBACK_H
+
 #include "GenStack.h"
 #include "Transaction.h"
 
@@ -6,9 +9,11 @@ public:
     Rollback();
     ~Rollback();
 
-    void update();
-    int goBack();
+    void update(Transaction* t);
+    Transaction goBack();
 
 private:
-    GenStack<Transaction> myActions;
+    GenStack<Transaction>* myActions;
 };
+
+#endif

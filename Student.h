@@ -4,7 +4,8 @@
 //CPSC: 350 - 2
 //Assignment 5: Student Database
 
-
+#ifndef STUDENT_H
+#define STUDENT_H
 #include "Person.h"
 
 class Student:public Person
@@ -19,11 +20,16 @@ public:
   bool operator<(const Student& other);
   bool operator>(const Student& other);
   bool operator==(const Student& other);
+  void setMajor(string m);
+  void setGPA(double g);
   int getAdvisor();
   void setAdvisor(int id);
 
   //aux functions
+  void fillInfo();
   void printInfo();
+
+  void transfer(Student* soul);
 
 private:
   //vars
@@ -32,3 +38,5 @@ private:
   int advisorID;
 
 };
+
+#endif

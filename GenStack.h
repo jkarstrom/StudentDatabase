@@ -1,5 +1,6 @@
 #ifndef GENSTACK_H
 #define GENSTACK_H
+#include "Transaction.h"
 
 template<class T>
 class GenStack{
@@ -9,7 +10,7 @@ public:
     GenStack<T>(int maxSize); // overloaded constructor
     ~GenStack(); // destructor
 
-    void push(T data); // add element to stack
+    void push(T* data); // add element to stack
     T pop(); // remove element from stack
 
     T peek(); // return top element in stack

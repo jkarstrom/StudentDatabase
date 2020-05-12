@@ -1,17 +1,19 @@
 #include "Rollback.h"
 
 Rollback::Rollback(){
-    myActions = new GenStack<Transaction>(5);
+    myActions = new GenStack<Transaction>();
 }
 
 Rollback::~Rollback(){
 
 }
 
-void Rollback::update(){
-
+void Rollback::update(Transaction* t){
+    // add transaction to stack
+    myActions->push(t);
 }
 
-void Rollback::goBack(){
-
+Transaction Rollback::goBack(){
+    // return latest transaction
+    return myActions->pop();
 }

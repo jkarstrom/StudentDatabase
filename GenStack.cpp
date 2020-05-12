@@ -2,7 +2,7 @@
 
 template<class T>
 GenStack<T>::GenStack(){
-    myArray = new T[10];
+    myArray = new T[100];
     mSize = 10;
     top = -1;
 }
@@ -25,9 +25,9 @@ void GenStack<T>::clearArray(){
 }
 
 template<class T>
-void GenStack<T>::push(T data){
+void GenStack<T>::push(T* data){
     if(!isFull()){
-        myArray[++top] = data;
+        *myArray[++top] = &data;
     }
     else{
         mSize *= 2;
@@ -43,7 +43,7 @@ void GenStack<T>::push(T data){
             myArray[i] = temp[i];
         }
         delete []temp;
-        myArray[++top] = data;
+        *myArray[++top] = &data;
     }
 }
 

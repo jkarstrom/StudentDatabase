@@ -3,6 +3,7 @@
 Database::Database(){
     masterFaculty = new BST<Faculty>();
     masterStudent = new BST<Student>();
+    history = new Rollback();
 }
 
 Database::~Database(){
@@ -11,7 +12,7 @@ Database::~Database(){
 
 void Database::makeTrees(){
     // check if files for trees are already there, if so, update
-    
+
 }
 
 void Database::run(){
@@ -38,8 +39,14 @@ void Database::run(){
         cin >> someID;
         masterFaculty->search(someID, userAction);
     }
-    // add transaction to rollback
 
+    // add transaction to rollback
+    else if(userAction == 7 || userAction == 8){
+        Transaction* myMove = new Transaction(userAction);
+        myMove->proceed(masterStudent, masterFaculty);
+        myMove->reverse();
+        history->update(myMove);
+    }
 
 }
 
@@ -63,4 +70,12 @@ void Database::printMenu(){
 
     cout << "(13) Rollback" << endl;
     cout << "(14) Exit" << endl;
+}
+
+int main(){
+    Database *myDatabase = new Database();
+    myDatabase->run();
+
+    delete myDatabase;
+    return 0;
 }

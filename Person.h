@@ -4,7 +4,11 @@
 //CPSC: 350 - 2
 //Assignment 5: Student Database
 
+
+#ifndef PERSON_H
+#define PERSON_H
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -18,11 +22,16 @@ public:
 
   //core functions
   int getID();
+  void setID(int i);
   string getName();
+  void setName(string n);
   string getLevel();
-  void setLevel();
+  void setLevel(string l);
   //aux functions
+  void fillInfo();
   void printInfo();
+
+  void transfer(Person* soul);
 
 protected:
   //vars
@@ -30,3 +39,5 @@ protected:
   string name;
   string level;
 };
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef LISTNODE_H
+#define LISTNODE_H
+
 #include <iostream>
 using namespace std;
 
@@ -10,3 +13,5 @@ public:
     ListNode(int d); // overloaded
     ~ListNode();
 };
+
+#endif

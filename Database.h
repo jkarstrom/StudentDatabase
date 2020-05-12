@@ -1,3 +1,5 @@
+#ifndef DATABASE_H
+#define DATABASE_H
 #include "BST.h"
 #include "Transaction.h"
 #include "Rollback.h"
@@ -13,11 +15,14 @@ public:
     void printMenu();
 
 private:
-    BST<Faculty> masterFaculty;
-    BST<Student> masterStudent;
+    BST<Faculty>* masterFaculty;
+    BST<Student>* masterStudent;
+    Rollback* history;
 
     int userAction;
     int someID;
 
 
 };
+
+#endif

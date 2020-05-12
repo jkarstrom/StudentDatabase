@@ -1,16 +1,16 @@
+#ifndef BST_H
+#define BST_H
 #include "TreeNode.h"
-#include "Faculty.h"
-#include "Student.h"
 
-template class <T>
+template <class T>
 class BST{
 public:
     BST<T>();
     ~BST();
     // virtual ~BST() - when working with template classes
 
-    void insert(int value); // which in this example is also our key
-    bool search(int value, int action); // which in this example is also our key
+    void insert(int id, T* value); // which in this example is also our key
+    bool search(int id, int action = 0, T* soul = NULL); // which in this example is also our key
     bool deleteNode(int k);
 
     bool isEmpty();
@@ -18,8 +18,9 @@ public:
     TreeNode<T>* getMax();
 
     TreeNode<T>* getSuccessor(TreeNode<T>*d);
-    void printTree(TreeNode<T> *node);
+    void printTree();
 
 private:
     TreeNode<T> *root;
 };
+#endif

@@ -1,3 +1,5 @@
+#ifndef SINGLYLINKEDLIST_H
+#define SINGLYLINKEDLIST_H
 #include "ListNode.h"
 
 class SinglyLinkedList{
@@ -18,3 +20,5 @@ public:
     bool isEmpty();
     void printList();
 };
+
+#endif

@@ -4,6 +4,8 @@
 //CPSC: 350 - 2
 //Assignment 5: Student Database
 
+#ifndef FACULTY_H
+#define FACULTY_H
 #include "Person.h"
 #include "SinglyLinkedList.h"
 
@@ -27,3 +29,5 @@ private:
   string department;
   SinglyLinkedList* adviseeList;
 };
+
+#endif

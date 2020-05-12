@@ -2,7 +2,7 @@
 
 template<class T>
 BST<T>::BST(){
-
+    root = new TreeNode<T>();
 }
 
 template<class T>
@@ -11,10 +11,10 @@ BST<T>::~BST(){
 }
 
 template<class T>
-void BST<T>::insert(int value){
-    TreeNode<T> *node = new TreeNode<T>(value);
+void BST<T>::insert(int id, T* value){
+    TreeNode<T> *node = new TreeNode<T>(id, value);
 
-    if(isEmpty){
+    if(isEmpty()){
         // empty tree
         root = node;
     }
@@ -25,7 +25,7 @@ void BST<T>::insert(int value){
 
         while(true){
             parent = curr;
-            if(value < curr->key){
+            if(id < curr->key){
                 // go left
                 curr = curr->left;
                 if(curr == NULL){
@@ -46,29 +46,34 @@ void BST<T>::insert(int value){
 }
 
 template<class T>
-bool BST<T>::search(int value, int action){
+bool BST<T>::search(int id, int action, T* soul){
     if(isEmpty()){
+        cout << "Please add people to your database first." << endl;
         return false;
     }
     else{
         // it is not an empty tree
         TreeNode<T> *current = root;
-        while(current->key != value){
-            if(value < current->key)
+        while(current->key != id){
+            if(id < current->key)
                 current = current->left;
             else
                 current = current->right;
 
             if(current == NULL) // we didn't find value
+                cout << "ID not in database. Please try again." << endl;
                 return false;
         }
-        // PRINT INFO HERE ----------------------------------------------------
+        // ASSIGNMENT SPECIFIC CODE ----------------------------------------------------
         if(action == 3 || action == 4)
             current->value->printInfo();
         else if(action == 5)
             cout << "Advisor: " << current->value->getAdvisor() << endl;
         else if(action == 6)
             current->value->printAdvisees();
+        else if(action == 7)
+            current->value->transfer(soul);
+
     }
     return true;
 }
@@ -177,11 +182,11 @@ TreeNode<T>* BST<T>::getMax(){
 }
 
 template<class T>
-TreeNode<T>* BST<T>::getSuccessor(TreeNode *d){
+TreeNode<T>* BST<T>::getSuccessor(TreeNode<T>* d){
     // the parameter d represents the node to be deleted
-    Treenode<T>*current = d->right;
-    TreeNode<T>*sp = d;
-    TreeNode<T>*successor = d;
+    TreeNode<T>* current = d->right;
+    TreeNode<T>* sp = d;
+    TreeNode<T>* successor = d;
 
     while(current != NULL){
         sp = successor;
@@ -199,11 +204,15 @@ TreeNode<T>* BST<T>::getSuccessor(TreeNode *d){
 }
 
 template<class T>
-void BST<T>::printTree(TreeNode *node){
+void BST<T>::printTree(){
+    TreeNode<T>* node = root;
     if(node == NULL)
         return;
 
     printTree(node->left);
-    node->value->printInfo() // PRINT INFO HERE -----------------------------
+    node->value->printInfo(); // PRINT INFO HERE -----------------------------
     printTree(node->right);
 }
+
+template class TreeNode<Faculty>;
+template class TreeNode<Student>;
