@@ -9,8 +9,8 @@ public:
     ~BST();
     // virtual ~BST() - when working with template classes
 
-    void insert(int id, T* value); // which in this example is also our key
-    bool search(int id, int action = 0, T* soul = NULL); // which in this example is also our key
+    void insert(int id, T* value);
+    bool search(int id, int action = 0, T* soul = NULL);
     bool deleteNode(int k);
 
     bool isEmpty();
@@ -19,6 +19,7 @@ public:
 
     TreeNode<T>* getSuccessor(TreeNode<T>*d);
     void printTree(TreeNode<T> *d = NULL);
+    TreeNode<T>* getRoot();
 
 private:
     TreeNode<T> *root;

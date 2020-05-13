@@ -35,12 +35,21 @@ void Faculty::removeAdvisee(int id){
         adviseeList->removeAtPos(pos);
 }
 
+void Faculty::fillInfo()
+{
+    Person::fillInfo();
+    cout << "Enter the department: ";
+    cin >> department;
+    cout << "Faculty member created. You may now assign advisees to this faculty member." << endl;
+}
+
 void Faculty::printAd(){
     cout << "Advisees:" << endl;
     adviseeList->printList();
 }
 
-void Faculty::printInfo(){
+void Faculty::printInfo()
+{
     Person::printInfo();
     cout << "Department: " << department << endl;
     printAd();

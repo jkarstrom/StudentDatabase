@@ -9,7 +9,7 @@
 #include "Person.h"
 #include "SinglyLinkedList.h"
 
-class Faculty : public Person
+class Faculty:public Person
 {
 public:
   Faculty();//default constructor
@@ -20,7 +20,9 @@ public:
 
   void addAdvisee(int id);
   void removeAdvisee(int id);
+
   //aux functions
+  void fillInfo();
   void printAd();
   void printInfo();
 

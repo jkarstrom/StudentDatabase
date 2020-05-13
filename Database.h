@@ -14,6 +14,8 @@ public:
     void run();
     void printMenu();
 
+    bool isRunning();
+
 private:
     BST<Faculty>* masterFaculty;
     BST<Student>* masterStudent;
@@ -21,6 +23,8 @@ private:
 
     int userAction;
     int someID;
+
+    bool running;
 
 
 };

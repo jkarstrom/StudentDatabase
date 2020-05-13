@@ -2,7 +2,6 @@
 
 template<class T>
 BST<T>::BST(){
-    root = new TreeNode<T>();
 }
 
 template<class T>
@@ -55,6 +54,7 @@ bool BST<T>::search(int id, int action, T* soul){
         // it is not an empty tree
         TreeNode<T> *current = root;
         while(current->key != id){
+
             if(id < current->key)
                 current = current->left;
             else
@@ -65,12 +65,13 @@ bool BST<T>::search(int id, int action, T* soul){
                 return false;
         }
         // ASSIGNMENT SPECIFIC CODE ----------------------------------------------------
-        if(action == 3 || action == 4)
-            current->value->printInfo();
-        else if(action == 5 || 6)
+
+        if(action == 3 || action == 4){
+            current->value->printInfo();}
+        else if(action == 5 || action == 6)
             current->value->printAd();
-        else if(action == 7)
-            current->value->transfer(soul);
+        else if(action == 7 || action == 10)
+            soul = current->value;
 
     }
     return true;
@@ -104,8 +105,9 @@ bool BST<T>::deleteNode(int k){
     // if we make it here, we found the value, now let's proceed to delete
     if(current->left == NULL && current->right == NULL){
         // then we have a leaf treenode
+
         if(current == root)
-            root == NULL;
+            root = NULL;
         else if(isLeft)
             parent->left = NULL;
         else
@@ -203,21 +205,20 @@ TreeNode<T>* BST<T>::getSuccessor(TreeNode<T>* d){
 
 template<class T>
 void BST<T>::printTree(TreeNode<T> *d){
-    TreeNode<T>* node;
-
-    if(d == root)
-        node = root;
-    else
-        node = d;
+    TreeNode<T>* node = d;
 
     if(node == NULL){}
 
     else{
-        cout << "Printing ..." << endl; // DELETE ----------------------------------------------
         printTree(node->left);
         node->value->printInfo(); // PRINT INFO HERE -----------------------------
         printTree(node->right);
     }
+}
+
+template<class T>
+TreeNode<T>* BST<T>::getRoot(){
+    return root;
 }
 
 template class BST<Faculty>;

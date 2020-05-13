@@ -9,6 +9,9 @@
 Person::Person()
 {
   //default constructor
+  id = 0;
+  name = "";
+  level = "";
 }
 
 //overload constructor

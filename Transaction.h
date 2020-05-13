@@ -22,6 +22,7 @@ private:
     bool reversed;
     Student* sSoul;
     Faculty* fSoul;
+    int holdingID;
 };
 
 #endif

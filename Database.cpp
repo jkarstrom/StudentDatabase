@@ -4,6 +4,7 @@ Database::Database(){
     masterFaculty = new BST<Faculty>();
     masterStudent = new BST<Student>();
     history = new Rollback();
+    running = true;
 }
 
 Database::~Database(){
@@ -26,9 +27,9 @@ void Database::run(){
     cin >> userAction;
 
     if(userAction == 1)
-        masterStudent->printTree();
+        masterStudent->printTree(masterStudent->getRoot());
     else if(userAction == 2)
-        masterFaculty->printTree();
+        masterFaculty->printTree(masterFaculty->getRoot());
     else if(userAction == 3 || userAction == 5){
         cout << "Enter student id: ";
         cin >> someID;
@@ -41,17 +42,30 @@ void Database::run(){
     }
 
     // add transaction to rollback
-    else if(userAction >= 7 && userAction <= 10){
+    else if(userAction >= 7 && userAction <= 12){
         Transaction* myMove = new Transaction(userAction);
         myMove->proceed(masterStudent, masterFaculty);
         myMove->reverse();
         history->update(myMove);
     }
+    else if(userAction == 13){
+        // rollback
+        Transaction* myReverse = history->goBack();
+        myReverse->proceed(masterStudent, masterFaculty);
+        delete myReverse;
+    }
+    else if(userAction == 14)
+        running = false;
 
 }
 
+bool Database::isRunning(){
+    return running;
+}
+
+
 void Database::printMenu(){
-    cout << "Main Menu" << endl;
+    cout << endl << "Main Menu" << endl;
     cout << "(1) Print all students and their information" << endl;
     cout << "(2) Print all faculty and their information" << endl;
     cout << "(3) Print a student's information" << endl;
@@ -70,12 +84,4 @@ void Database::printMenu(){
 
     cout << "(13) Rollback" << endl;
     cout << "(14) Exit" << endl;
-}
-
-int main(){
-    Database *myDatabase = new Database();
-    myDatabase->run();
-
-    delete myDatabase;
-    return 0;
 }
