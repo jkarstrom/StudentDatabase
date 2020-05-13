@@ -25,7 +25,10 @@ void FileIO::openFile()
   {
     while ( getline (inputFile,line) )
     {
-
+      for(int i = 0; i < line.size(); ++i)
+      {
+        
+      }
     }
     inputFile.close();
   }
@@ -37,7 +40,10 @@ void FileIO::openFile()
   {
     while ( getline (inputFile,line) )
     {
+      for(int i = 0; i < line.size(); ++i)
+      {
 
+      }
     }
     inputFile.close();
   }
@@ -49,13 +55,13 @@ void FileIO::writeFile()
   //students first
   ofstream studentFile;
   studentFile.open ("masterStudent.txt");
-  studentFile <<
+  studentFile << masterStudent->printTree(masterStudent->getRoot()); << endl
   studentFile.close();
 
   //faculty
   ofstream facultyFile;
   facultyFile.open ("masterFaculty.txt");
-  facultyFile <<
+  facultyFile << masterFaculty->printTree(masterFaculty->getRoot()); << endl
   facultyFile.close();
 
 }
