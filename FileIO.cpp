@@ -42,7 +42,7 @@ void FileIO::openFile(BST<Student>* sTree, BST<Faculty>* fTree)
   {
     while ( getline (fFile,line) )
     {
-      for(int i = 0; i < line.size(); ++i)
+      for(int j = 0; j < line.size(); ++j)
       {
           Faculty* f = new Faculty();
           fTree->insert(f->getID(), f);

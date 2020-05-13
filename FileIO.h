@@ -30,6 +30,6 @@ public:
 
 private:
   //vars
-
+  string line = "";
 };
 #endif
