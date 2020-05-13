@@ -17,51 +17,54 @@ FileIO::~FileIO()
   //deconstructor
 }
 
-void FileIO::openFile()
+void FileIO::openFile(BST<Student>* sTree, BST<Faculty>* fTree)
 {
   //students
-  ifstream inputFile("masterStudent.txt");
-  if (inputFile.is_open())
+  ifstream sFile("studentTable.txt");
+  string line;
+  if (sFile.is_open())
   {
-    while ( getline (inputFile,line) )
+    while ( getline (sFile, line) )
     {
       for(int i = 0; i < line.size(); ++i)
       {
-        
+          Student* s = new Student();
+          sTree->insert(s->getID(), s);
       }
     }
-    inputFile.close();
+    sFile.close();
   }
   else cout << "Unable to open file";
 
   //faculty
-  ifstream inputFile("masterStudent.txt");
-  if (inputFile.is_open())
+  ifstream fFile("facultyTable.txt");
+  if (fFile.is_open())
   {
-    while ( getline (inputFile,line) )
+    while ( getline (fFile,line) )
     {
       for(int i = 0; i < line.size(); ++i)
       {
-
+          Faculty* f = new Faculty();
+          fTree->insert(f->getID(), f);
       }
     }
-    inputFile.close();
+    fFile.close();
   }
   else cout << "Unable to open file";
 }
 
-void FileIO::writeFile()
+void FileIO::writeFile(BST<Student>* sTree, BST<Faculty>* fTree)
 {
   //students first
   ofstream studentFile;
-  studentFile.open ("masterStudent.txt");
-  studentFile << masterStudent->printTree(masterStudent->getRoot()); << endl
+  studentFile.open("studentTable.txt");
+  // studentFile << sTree->writeTree() << endl;
   studentFile.close();
 
   //faculty
   ofstream facultyFile;
-  facultyFile.open ("masterFaculty.txt");
-  facultyFile << masterFaculty->printTree(masterFaculty->getRoot()); << endl
+  facultyFile.open("masterFaculty.txt");
+  // facultyFile << fTree->writeTree() << endl;
   facultyFile.close();
 
 }
