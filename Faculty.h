@@ -29,7 +29,9 @@ public:
 
   void transfer(Faculty* soul);
 
+  SinglyLinkedList* getAdvisees();
   void copyAdvisee(SinglyLinkedList* a);
+  bool isAdvisor();
 
 private:
   //vars

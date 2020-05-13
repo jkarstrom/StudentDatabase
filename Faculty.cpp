@@ -66,6 +66,14 @@ void Faculty::transfer(Faculty* soul){
     soul->copyAdvisee(adviseeList);
 }
 
+SinglyLinkedList* Faculty::getAdvisees(){
+    return adviseeList;
+}
+
 void Faculty::copyAdvisee(SinglyLinkedList* a){
-    adviseeList = a;
+    *adviseeList = *a;
+}
+
+bool Faculty::isAdvisor(){
+    return (!adviseeList->isEmpty());
 }
