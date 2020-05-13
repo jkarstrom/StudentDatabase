@@ -86,7 +86,6 @@ bool SinglyLinkedList::isEmpty(){
 
 void SinglyLinkedList::printList(){
     ListNode *curr = front;
-
     if(!isEmpty()){
         while(curr != NULL){
             cout << curr->data << endl;

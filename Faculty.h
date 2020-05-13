@@ -17,6 +17,7 @@ public:
   ~Faculty();//deconstructor
 
   //core functions
+  void setDepartment(string d);
 
   void addAdvisee(int id);
   void removeAdvisee(int id);
@@ -25,6 +26,10 @@ public:
   void fillInfo();
   void printAd();
   void printInfo();
+
+  void transfer(Faculty* soul);
+
+  void copyAdvisee(SinglyLinkedList* a);
 
 private:
   //vars

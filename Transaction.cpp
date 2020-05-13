@@ -47,6 +47,10 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
         else{
             // resurrect DEAD student
             sTree->insert(specialID, sSoul);
+            // add to advisor
+            int aID = sSoul->getAdvisor();
+            fTree->search(aID,7,fSoul);
+            fSoul->addAdvisee(specialID);
         }
 
     }
@@ -57,6 +61,10 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
             cin >> specialID;
             sTree->search(specialID, 8, sSoul);
         }
+        // remove from advisor
+        int aID = sSoul->getAdvisor();
+        fTree->search(aID,7,fSoul);
+        fSoul->removeAdvisee(specialID);
         sTree->deleteNode(specialID);
     }
     else if(number == 9){
@@ -66,6 +74,7 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
 
             german->fillInfo();
             specialID = german->getID();
+            cout << "Special ID for making new f: " << specialID << endl;
             fTree->insert(specialID, german);
         }
         else{
@@ -80,6 +89,8 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
             cin >> specialID;
             fTree->search(specialID, 10, fSoul);
         }
+        // reassign advisees
+        cout << "Special ID for deleting f: " << specialID << endl;
         fTree->deleteNode(specialID);
     }
     else if(number == 11){

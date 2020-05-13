@@ -25,6 +25,10 @@ Faculty::~Faculty()
 
 }
 
+void Faculty::setDepartment(string d){
+    department = d;
+}
+
 void Faculty::addAdvisee(int id){
     adviseeList->insertFront(id);
 }
@@ -54,4 +58,14 @@ void Faculty::printInfo()
     cout << "Department: " << department << endl;
     printAd();
     cout << endl;
+}
+
+void Faculty::transfer(Faculty* soul){
+    Person::transfer(soul);
+    soul->setDepartment(department);
+    soul->copyAdvisee(adviseeList);
+}
+
+void Faculty::copyAdvisee(SinglyLinkedList* a){
+    adviseeList = a;
 }

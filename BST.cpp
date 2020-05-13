@@ -70,8 +70,8 @@ bool BST<T>::search(int id, int action, T* soul){
             current->value->printInfo();}
         else if(action == 5 || action == 6)
             current->value->printAd();
-        else if(action == 7 || action == 10)
-            soul = current->value;
+        else if(action >= 7 && action <= 10)
+            current->value->transfer(soul);
 
     }
     return true;
