@@ -27,7 +27,7 @@ void FileIO::openFile()
     {
       for(int i = 0; i < line.size(); ++i)
       {
-        
+        //read student information and insert it into tree
       }
     }
     inputFile.close();
@@ -35,17 +35,17 @@ void FileIO::openFile()
   else cout << "Unable to open file";
 
   //faculty
-  ifstream inputFile("masterStudent.txt");
-  if (inputFile.is_open())
+  ifstream inputF("masterStudent.txt");
+  if (inputF.is_open())
   {
-    while ( getline (inputFile,line) )
+    while ( getline (inputF,line) )
     {
-      for(int i = 0; i < line.size(); ++i)
+      for(int j = 0; j < line.size(); ++j)
       {
-
+        // read faculty information and insert it into tree
       }
     }
-    inputFile.close();
+    inputF.close();
   }
   else cout << "Unable to open file";
 }
@@ -55,13 +55,15 @@ void FileIO::writeFile()
   //students first
   ofstream studentFile;
   studentFile.open ("masterStudent.txt");
-  studentFile << masterStudent->printTree(masterStudent->getRoot()); << endl
+  //write out the printed summary of each student per line
+  //studentFile << masterStudent->printTree(masterStudent->getRoot()); << endl
   studentFile.close();
 
   //faculty
   ofstream facultyFile;
   facultyFile.open ("masterFaculty.txt");
-  facultyFile << masterFaculty->printTree(masterFaculty->getRoot()); << endl
+  //write out the printed summary of each faculty per line
+  //facultyFile << masterFaculty->printTree(masterFaculty->getRoot()); << endl
   facultyFile.close();
 
 }
