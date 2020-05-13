@@ -13,9 +13,6 @@ public:
 
     void run();
     void printMenu();
-    void importFiles();
-    void outputFaculty(TreeNode<Faculty> *fac, string fileName);
-    void outputStudent(TreeNode<Student> *stu, string fileName);
 
     bool isRunning();
 
