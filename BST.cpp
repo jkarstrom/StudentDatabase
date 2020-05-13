@@ -145,9 +145,8 @@ bool BST<T>::deleteNode(int k){
 
         // connect or link successor to current's left child (d)
         successor-> left = current->left;
-
-        return true;
     }
+    return true;
 }
 
 template<class T>
@@ -220,6 +219,7 @@ template<class T>
 TreeNode<T>* BST<T>::getRoot(){
     return root;
 }
+
 
 template class BST<Faculty>;
 template class BST<Student>;

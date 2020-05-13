@@ -40,6 +40,8 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
                 int aID = rene->getAdvisor();
                 fTree->search(aID,7,fSoul);
                 fSoul->addAdvisee(specialID);
+                fTree->deleteNode(aID);
+                fTree->insert(aID, fSoul);
 
                 sTree->insert(specialID, rene);
             }
@@ -51,6 +53,8 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
             int aID = sSoul->getAdvisor();
             fTree->search(aID,7,fSoul);
             fSoul->addAdvisee(specialID);
+            fTree->deleteNode(aID);
+            fTree->insert(aID, fSoul);
         }
 
     }
@@ -65,6 +69,9 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
         int aID = sSoul->getAdvisor();
         fTree->search(aID,7,fSoul);
         fSoul->removeAdvisee(specialID);
+        fTree->deleteNode(aID);
+        fTree->insert(aID, fSoul);
+
         sTree->deleteNode(specialID);
     }
     else if(number == 9){
@@ -74,7 +81,6 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
 
             german->fillInfo();
             specialID = german->getID();
-            cout << "Special ID for making new f: " << specialID << endl;
             fTree->insert(specialID, german);
         }
         else{
@@ -83,15 +89,32 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
         }
     }
     else if(number == 10){
-        // disown a faculty member
+        // delete a faculty member
+        Faculty* temp;
         if(!reversed){
             cout << "Enter faculty ID: ";
             cin >> specialID;
             fTree->search(specialID, 10, fSoul);
+            temp = fSoul; // temp is faculty to delete
         }
-        // reassign advisees
-        cout << "Special ID for deleting f: " << specialID << endl;
-        fTree->deleteNode(specialID);
+        // reassign advisees to another faculty
+        if(fSoul->isAdvisor()){
+            cout << "Enter advisor ID for reassigned advisees: ";
+            cin >> holdingID;
+            if(!fTree->search(holdingID))
+                cout << "Invalid advisor ID. Please try again." << endl;
+            else{
+                fTree->search(holdingID,7,fSoul); // fSoul is now replacement
+                fSoul->copyAdvisee(temp->getAdvisees());
+                fTree->deleteNode(holdingID);
+                fTree->insert(holdingID, fSoul);
+            }
+        }
+        else{
+            fTree->deleteNode(specialID);
+        }
+        temp = NULL;
+
     }
     else if(number == 11){
         if(!reversed){
@@ -106,12 +129,16 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
                 cout << "Invalid advisor ID. Please try again." << endl;
             else{
                 sSoul->setAdvisor(holdingID);
+                sTree->deleteNode(specialID);
+                sTree->insert(specialID, sSoul);
             }
             holdingID = temp;
         }
         else{
             // switch back advisor
             sSoul->setAdvisor(holdingID);
+            sTree->deleteNode(specialID);
+            sTree->insert(specialID, sSoul);
         }
     }
     else if(number == 12){
@@ -126,11 +153,15 @@ void Transaction::proceed(BST<Student>* sTree, BST<Faculty>* fTree){
                 cout << "Invalid advisee ID. Please try again." << endl;
             else{
                 fSoul->removeAdvisee(holdingID);
+                fTree->deleteNode(specialID);
+                fTree->insert(specialID, fSoul);
             }
         }
         else{
             // add back advisee
             fSoul->addAdvisee(holdingID);
+            fTree->deleteNode(specialID);
+            fTree->insert(specialID, fSoul);
         }
 
     }
@@ -143,9 +174,9 @@ void Transaction::reverse(){
     else if(number == 8)
         number = 7;
     else if(number == 9)
-        number == 10;
+        number = 10;
     else if(number == 10)
-        number == 9;
+        number = 9;
 
     reversed = true;
 }
